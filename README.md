@@ -1,6 +1,0 @@
-## Jenkins
-
-Example Go server
-
-
-
