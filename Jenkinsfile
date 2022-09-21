@@ -1,8 +1,8 @@
 pipeline {
     agent none 
     environment {
-        registry = "linhbngo/go_server"
-        docker_user = "linhbngo"
+        registry = "hzhong456/go_server"
+        docker_user = "hzhong456"
         docker_app = "go_server"
         GOCACHE = "/tmp"
     }
@@ -70,7 +70,7 @@ pipeline {
                     sh "sed -i 's/DOCKER_USER/${docker_user}/g' deployment.yml"
                     sh "sed -i 's/DOCKER_APP/${docker_app}/g' deployment.yml"
                     sh "sed -i 's/BUILD_NUMBER/${BUILD_NUMBER}/g' deployment.yml"
-                    sh 'scp -r -v -o StrictHostKeyChecking=no *.yml lngo@155.98.37.91:~/'
+                    sh 'scp -r -v -o StrictHostKeyChecking=no *.yml hz940494@155.98.37.90:~/'
                     sh 'ssh -o StrictHostKeyChecking=no lngo@155.98.37.91 kubectl apply -f /users/lngo/deployment.yml -n jenkins'
                     sh 'ssh -o StrictHostKeyChecking=no lngo@155.98.37.91 kubectl apply -f /users/lngo/service.yml -n jenkins'                                        
                 }
