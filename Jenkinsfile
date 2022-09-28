@@ -53,9 +53,11 @@ pipeline {
             }
             steps{
                 container('docker') {
-                    sh 'echo $DOCKER_TOKEN | docker login --username $DOCKER_USER --password-stdin'
-                    sh 'docker build -t $DOCKER_REGISTRY:$BUILD_NUMBER .'
-                    sh 'docker push $DOCKER_REGISTRY:$BUILD_NUMBER'
+                 //   sh 'echo $DOCKER_TOKEN | docker login --username $DOCKER_USER --password-stdin'
+                  //  sh 'docker build -t $DOCKER_REGISTRY:$BUILD_NUMBER .'
+                  //  sh 'docker push $DOCKER_REGISTRY:$BUILD_NUMBER'
+                     sh 'docker build -t 130.127.132.210:31000/go_app:$BUILD_NUMBER .'
+                    sh 'docker push 130.127.132.210:31000/go_app:$BUILD_NUMBER'
                 }
             }
         }
