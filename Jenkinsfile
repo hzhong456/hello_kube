@@ -48,7 +48,7 @@ pipeline {
         stage('Publish') {
             agent {
                 kubernetes {
-                    inheritFrom 'golang'
+                    inheritFrom 'docker'
                 }
             }
             steps{
